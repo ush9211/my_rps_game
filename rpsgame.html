@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>rock paper scissors</title>
+<link rel="stylesheet" href="./css/rps_game.css">
+</head>
+<body>
+    <div class="container">
+        <h1>가위바위보 게임을 해보자!</h1><br>
+        <p id="winner"></p>
+        <div class="game">
+            <strong>[ 나 ]</strong><br>
+            <span id="me"></span>
+        </div>
+        <div class="game">
+            <strong>[ 컴퓨터 ]</strong><br>
+            <span id="cum"></span>
+        </div>
+        <br>
+        <button onclick="game()">얍!</button>
+    </div>
+    <div>
+        <p class="photo"></p>
+    </div>
+
+    <script>
+        const me = ["&#9996;&#127995;", "&#9994;&#127995;", "&#9995;&#127995;"];
+        const cum = ["&#9996;&#127995;", "&#9994;&#127995;", "&#9995;&#127995;"];
+
+        function game() {
+            const rs1 = Math.floor(Math.random()*3);
+            const rs2 = Math.floor(Math.random()*3);
+            document.getElementById("me").innerHTML = me[rs1];
+            document.getElementById("cum").innerHTML = cum[rs2];
+
+            const win = `이겼습니다! >_<`
+            const lose = `졌습니다 ㅜ.ㅜ`
+            const same = `비겼습니다. 다시한번!`
+            
+            if(rs1==rs2){
+                document.getElementById("winner").innerHTML = same;
+            }else if(rs1==0&&rs2==1){
+                document.getElementById("winner").innerHTML = lose;
+            }else if(rs1==1&&rs2==2){
+                document.getElementById("winner").innerHTML = lose;
+            }else if(rs1==2&&rs2==0){
+                document.getElementById("winner").innerHTML = lose;
+            }else if(rs1==2&&rs2==1){
+                document.getElementById("winner").innerHTML = win;
+            }else if(rs1==1&&rs2==0){
+                document.getElementById("winner").innerHTML = win;
+            }else if(rs1==0&&rs2==2){
+                document.getElementById("winner").innerHTML = win;
+            }
+        }
+
+
+    </script>
+
+</body>
+</html>
